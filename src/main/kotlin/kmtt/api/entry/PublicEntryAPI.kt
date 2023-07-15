@@ -25,7 +25,7 @@ internal class PublicEntryAPI(private val httpClient: IHttpClient, private val s
     }
 
     override suspend fun getEntry(id: Long): Entry {
-        val endpointURL = "/entry/$id"
+        val endpointURL = "/content?id=$id"
 
         val response = httpClient.request<SuccessResponse<Entry>> {
             url(site.apiURL() + endpointURL)
